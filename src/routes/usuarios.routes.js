@@ -1,5 +1,5 @@
 import { Router } from "express";
-import UserRepository from "../models/users/UserRepository.js";
+import UserRepository from "../models/users/UsersRepository.js";
 
 const usuariosRoutes = Router();
 
@@ -11,6 +11,21 @@ usuariosRoutes.get("/", (req, res) => {
     usuarios,
   }
   );
+});
+
+// Rota para adicionar um novo usuário
+usuariosRoutes.post("/", (req, res) => {
+  const { tituloLivro, avaliacao, status, generosLivro } = req.body;
+
+  const user = new UserRepository();
+  user.postUser(tituloLivro, avaliacao, status, generosLivro);
+
+  usuarios = user.getAllUsers();
+
+  return res.status(201).json({
+    message: "Usuário cadastrado com sucesso!",
+    usuarios,
+  });
 });
 
 export default usuariosRoutes;
