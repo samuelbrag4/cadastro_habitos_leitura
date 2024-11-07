@@ -1,4 +1,5 @@
 import { Router } from "express";
+import UserRepository from "../models/users/UserRepository.js";
 
 const usuariosRoutes = Router();
 
