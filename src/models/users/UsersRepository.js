@@ -15,6 +15,8 @@ class UsersRepository {
         const user = new User(tituloLivro, avaliacao, status, generosLivro);
         this.users.push(user);
     }
+
+    //
 }
 
 export default UsersRepository;
