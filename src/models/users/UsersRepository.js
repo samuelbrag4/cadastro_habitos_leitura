@@ -17,6 +17,21 @@ class UsersRepository {
         return user;
     }
 
+    // Método para atualizar usuário - Alexandra
+    updateUser(id, tituloLivro, avaliacao, status, generosLivro) {
+        const user = this.users.find((user) => user.id === id);
+        if (!user) {
+            return null;
+        }
+
+        user.tituloLivro = tituloLivro;
+        user.avaliacao = avaliacao;
+        user.status = status;
+        user.generosLivro = generosLivro;
+
+        return user;
+    }
+
 }
 
 export default UsersRepository;
